@@ -2,7 +2,7 @@ name: achievement-collector
 
 on:
   schedule:
-    - cron: '*/6 * * * *'
+    - cron: '* * * * *'
 
 jobs:
   block_update:
@@ -20,7 +20,12 @@ jobs:
           python-version: '3.7.7'
         
       - name: execute py script 
-        run: python main.py
+        run: |
+          for i in {1..60}
+          do
+            python main.py
+            sleep 1  # Wait 1 second
+          done
           
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
