@@ -1,4 +1,4 @@
-#.
+
 name: merge PR
 
 on:
@@ -16,7 +16,7 @@ jobs:
           github-token: "${{ secrets.PAT }}"
           script: |
             const creator = context.payload.sender.login
-            if(creator != "Anurag-gg")
+            if(creator != "Weirdo-147")
               return
             
             const pull_number = ${{github.event.pull_request.number}}
